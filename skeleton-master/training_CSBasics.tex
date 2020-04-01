@@ -1,0 +1,108 @@
+\documentclass{scrartcl}
+
+\usepackage{url}
+\usepackage{listings}
+\usepackage{csquotes}
+\usepackage[hidelinks]{hyperref}
+
+\title{Project and Training 1 (BTI3001/BTI3002)\\Computer Science Basics}
+\author{Emmanuel Benoist, Christian Grothoff, Pascal Mainini}
+\date{Fall Term 2019/2020}
+\begin{document}
+
+\maketitle
+
+\section{Install Linux in a Virtual Machine}
+All further exercises will be done on a Linux machine.
+If you already run Linux as main operating system on your machine, you can skip this section.
+
+Before starting the installation, you need to download the following files:
+
+\begin{itemize}
+\item Virtual Box for running virtual machines:
+  \url{https://www.virtualbox.org/wiki/Downloads}
+\item \enquote{Small CD} ISO image for the Debian GNU/Linux operating system (\enquote{amd64} version):
+  \url{https://www.debian.org/distrib/netinst}
+\end{itemize}
+
+When finished downloading, start by installing Virtual Box, which should be straight forward.
+
+After this, you need to install a Linux virtual machine inside Virtual Box.
+
+\begin{itemize}
+\item Create a new virtual machine (\texttt{Machine> New})
+
+  Configure the following settings:
+
+  Name: \enquote{\texttt{CSBasics\_2019\_2020}}; Type: \enquote{\texttt{Linux}}; Version : \enquote{\texttt{Debian (64 bits)}}
+
+  If you can only select the 32 bit version, you have a misconfiguration of your machine and need to enable virtualization (VT) in your BIOS/EFI settings.
+
+Adjust the parameters for the virtual machine:
+\begin{itemize}
+\item Memory: You need to have enough memory; if your computer has at
+  least 8GB RAM, select 2GB (i.e. 2048 MB) for the virtual
+  machine. Otherwise, configure as much as your system can support.
+
+\item You need a new virtual hard disk. Use the default type VDI with dynamically allocated space.
+You need at least 16 GB of hard disk space; if possible, chose 20GB.
+\end{itemize}
+
+\item In Virtual Box, start the new virtual machine and select the ISO file you have downloaded. During installation:
+
+
+  \begin{itemize}
+  \item Chose your keyboard layout correctly. This is very important as a wrong layout may for instance cause problems entering passwords etc.
+  \item Select \emph{minimal installation} (We will install all the required software when needed).
+  \item Erase disk and install Debian (this will NOT erase your \enquote{real} disk, just the new virtual one).
+  \end{itemize}
+\item Restart the virtual machine now.
+
+
+\end{itemize}
+
+\section{Install the Required Software Packages}
+After the Linux system has started, open a \texttt{terminal}; we will almost exclusively work in Linux terminals. Also, all the following commands have to be executed inside a terminal.
+
+The command used to install software packages in Debian is:\footnote{It might be that your non-root user is not in the \enquote{sudo}-group. In this case: switch to root using \enquote{\texttt{su -}}, add your user to the group with \enquote{\texttt{adduser <user> sudo}} (where \texttt{<user>} is the login name of your normal user) and log out and in again.}
+
+\begin{lstlisting}
+sudo apt install <package1> <package2> ...
+\end{lstlisting}%$
+
+We will now use it to install the following packages: \texttt{gcc}, \texttt{make}, \texttt{perl}, \texttt{nasm}, \texttt{emacs}, \texttt{vim}, \texttt{git} and \texttt{bless}.
+
+\begin{lstlisting}
+machine-:$ sudo apt install gcc make perl nasm emacs vim git bless
+\end{lstlisting}%$
+
+Finally, it is recommended to install the Virtual Box guest additions: in the Virtual Box menu, select \texttt{Install Guest Addition CD} and refer to Virtual Box documentation for further instructions.
+
+\section{Setting-up the Required git Repositories}
+
+All examples and exercises of \emph{BTI1021 Computer Science Basics} are distributed using git repositories, which will now be configured:
+
+\begin{itemize}
+\item  Login to \url{https://gitlab.ti.bfh.ch}
+
+\item Open the project \textbf{bti3001project/fs2019-2020/skeleton}
+
+\item Fork it to your own namespace.
+
+\item Clone your fork of the skeleton repository (important: replace \emph{yourLogin} with your BFH-acronym, i.e. \texttt{abcde3}!):
+
+  \begin{lstlisting}
+machine-:$ mkdir git-bti3001
+...
+machine-:$ cd git-bti3001
+...
+machine-:$ git clone https://gitlab.ti.bfh.ch/yourLogin/skeleton.git
+    \end{lstlisting}%$
+
+\end{itemize}
+
+\section{Do the exercises and test the results}
+
+Inside the directory \texttt{\textasciitilde{}/git-bti3001/skeleton/} you'll find directories for the different exercises. After solving the exercises and when you are happy with your solution, you must push your repository back to gitlab. This will automatically generate feedback which can then be displayed within gitlab.
+
+\end{document}

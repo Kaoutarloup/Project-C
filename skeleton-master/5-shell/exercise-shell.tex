@@ -1,0 +1,136 @@
+\documentclass{scrartcl}
+
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\usepackage{listings}
+
+\title{Implement a Small UNIX Shell}
+\author{Emmanuel Benoist, Christian Grothoff, Pascal Mainini}
+\date{Fall Term 2019/2020}
+\begin{document}
+
+\maketitle
+
+This exercise must be done inside the clone of your own fork of the skeleton git repository.
+
+\section{Presentation of the files}
+
+
+
+The file \texttt{shell.c} contains a C file that must be completed. This is the main file you have to change.
+
+The file \texttt{makefile} contains the instructions for the compilation.
+
+\section{Goal of the exercise}
+
+The goal of this exercise is to write a program in C, which emulates a Unix shell (a small one).
+
+Your shell must:
+\begin{enumerate}
+\item  Print a shell prompt (\texttt{"\$ "}) for each command.
+
+Example:
+
+\begin{lstlisting}
+$
+\end{lstlisting}
+
+
+\item  Read a stream of simple commands to execute from stdin.
+
+Example:
+
+\begin{lstlisting}
+$ echo Hello
+Hello
+$ expr 1 + 3
+4
+\end{lstlisting}
+
+
+\item  Support setting shell variables and expansion.
+
+Example:
+
+\begin{lstlisting}
+$ A=5
+$ echo $A
+5
+$ echo ${A}BC
+5BC
+$ A=$A$A
+echo $A
+55
+\end{lstlisting}%$
+
+
+
+\item  Support checking the status of the last command via \$?.
+
+Example:
+\begin{lstlisting}
+$ true
+$ echo $?
+0
+$ false
+$ echo $?
+1
+\end{lstlisting}
+
+
+
+\item  Support launching processes in the background with '\&'.
+
+  Example:
+
+  \begin{lstlisting}
+$ firefox &
+$
+\end{lstlisting}
+
+
+(here, Firefox should run and your shell should accept additional
+commands as inputs while Firefox is running).  Without '\&', the
+shell must only accept new commands after the previous command
+has terminated!
+
+
+\item Support redirection of stdin, stdout and stderr with \texttt{">"}, \texttt{"<"} and \texttt{"2>"}.
+
+  Example:
+
+
+  \begin{lstlisting}
+$ echo Hello > test.txt
+$ cat - < test.txt
+Hello
+\end{lstlisting}
+
+\item  Support the pipeline operator \texttt{"|"}.
+
+  Example:
+
+  \begin{lstlisting}
+$ echo Hello | tr l L | tr o ?
+HeLL?
+\end{lstlisting}%$
+\end{enumerate}
+
+A passing grade will be awarded for completing 6/7 of the features.
+
+
+\section{Upload the result to the Git repository}
+You must upload the file you wrote \texttt{shell.c} to the repository.
+
+\begin{lstlisting}
+machine-:$ git add shell.c
+....
+machine-:$ git commit -m"solution for exercise 5"
+....
+machine-:$ git push origin master
+\end{lstlisting}%$
+
+\section{Get feedback}
+You can inspect the results of the automated tests for your program inside gitlab CI (\url{https://gitlab.ti.bfh.ch}, go to \texttt{CI/CD > Jobs} in your forked project). There, you will also find the amount of points given.
+
+\end{document}

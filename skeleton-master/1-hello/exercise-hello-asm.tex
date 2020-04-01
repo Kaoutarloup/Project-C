@@ -1,0 +1,53 @@
+\documentclass{scrartcl}
+
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\usepackage{listings}
+
+\title{Hello World in Assembly}
+\author{Emmanuel Benoist, Christian Grothoff, Pascal Mainini}
+\date{Fall Term 2019/2020}
+\begin{document}
+
+\maketitle
+
+This exercise must be done inside the clone of your own fork of the skeleton git repository.
+
+\section{Presentation of the files}
+
+
+
+The file \texttt{hello.asm} contains an assembler file that needs to be completed. This is the main file you need to change.
+
+The file \texttt{makefile} contains the instructions for the compilation. 
+
+\section{Goal of the exercise}
+
+The goal of this exercise is to work on a small Assembler file, to compile and run it. It should write the string ``Hello world!'' with a Line Feed in the end on the standard output.
+
+\section{Expected Output}
+
+The program must have the following behaviour:
+
+\begin{lstlisting}
+machine-:$ ./hello
+Hello world! 
+machine-:$ ./hello
+Hello world!
+\end{lstlisting}
+
+\section{Upload the result to the Git repository}
+You must upload the file you wrote \texttt{hello.asm} to the repository.
+
+\begin{lstlisting}
+machine-:$ git add hello.asm
+....
+machine-:$ git commit -m"solution for exercise 1"
+....
+machine-:$ git push origin master
+\end{lstlisting}%$
+
+\section{Get feedback}
+You can inspect the results of the automated tests for your program inside gitlab CI (\url{https://gitlab.ti.bfh.ch}, go to \texttt{CI/CD > Jobs} in your forked project). There, you will also find the amount of points given.
+
+\end{document}

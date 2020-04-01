@@ -1,0 +1,84 @@
+\documentclass{scrartcl}
+
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\usepackage{csquotes}
+\usepackage{listings}
+
+\title{Implement \enquote{ls} in C}
+\author{Emmanuel Benoist, Christian Grothoff, Pascal Mainini}
+\date{Fall Term 2019/2020}
+\begin{document}
+
+\maketitle
+
+This exercise must be done inside the clone of your own fork of the skeleton git repository.
+
+\section{Presentation of the files}
+
+
+
+The file \texttt{ls.c} contains a C-file that needs to be completed. This is the main file you need to change.
+
+The file \texttt{makefile} contains the instructions for the compilation. 
+
+\section{Goal of the exercise}
+
+The goal of this exercise is to write a program in C which emulates the \texttt{ls} program (used for listing files and directories). 
+
+Your program will work with or without an optional parameter. If the parameter is not given, it simply lists the current directory. If the parameter is given, its content is listed: for a single file, only that file is listed; if a directory is given, all the files and directories inside the directory are listed.
+
+\section{Expected Output}
+
+The program must have the same behaviour as the GNU/Linux \texttt{ls} command with the options \texttt{-1 -F}. 
+
+All files and directories must be printed in a single column. For directories, a \texttt{/} must be appended to the output, for executable files a \texttt{*}.
+
+\subsection{Output without parameter}
+
+\begin{lstlisting}
+machine-:$ ./ls
+ls*
+ls.c
+Makefile
+
+# compare to standard ls
+machine-:$ ls -1 -F 
+ls*
+ls.c
+Makefile
+\end{lstlisting}
+
+\subsection{Output with parameter}
+
+\begin{lstlisting}
+machine-:$ ./ls ..
+1-hello/
+2-primes/
+3-ls/
+4-sort/
+5-shell/
+Makefile
+README.md
+training_CSBasics.pdf
+training_CSBasics.tex
+
+machine-:$  ./ls /etc/hostname
+/etc/hostname
+\end{lstlisting}
+
+\section{Upload the result to the Git repository}
+You must upload the file you wrote, \texttt{ls.c}, to the repository.
+
+\begin{lstlisting}
+machine-:$ git add ls.c
+....
+machine-:$ git commit -m"solution for exercise 3"
+....
+machine-:$ git push origin master
+\end{lstlisting}%$
+
+\section{Get feedback}
+You can inspect the results of the automated tests for your program inside gitlab CI (\url{https://gitlab.ti.bfh.ch}, go to \texttt{CI/CD > Jobs} in your forked project). There, you will also find the amount of points given.
+
+\end{document}

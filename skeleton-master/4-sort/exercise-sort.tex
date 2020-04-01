@@ -1,0 +1,104 @@
+\documentclass{scrartcl}
+
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\usepackage{listings}
+
+\title{Sort a List of Strings in C}
+\author{Emmanuel Benoist, Christian Grothoff, Pascal Mainini}
+\date{Fall Term 2019/2020}
+\begin{document}
+
+\maketitle
+
+This exercise must be done inside the clone of your own fork of the skeleton git repository.
+
+\section{Presentation of the files}
+
+
+
+The file \texttt{sort.c} contains a C file that must be completed. This is the main file you have to change.
+
+The file \texttt{makefile} contains the instructions for the compilation. 
+
+\section{Goal of the exercise}
+
+The goal of this exercise is to write a program in C which sorts the lines of its input. By default, lines are sorted in ascending order. The program must support an optional \texttt{-r} parameter which causes sorting to be done in descending order. For example, ascending mode looks like this:
+
+\begin{lstlisting}
+a
+c
+b
+\end{lstlisting}
+
+The output must be
+\begin{lstlisting}
+a
+b
+c
+\end{lstlisting}
+
+
+\section{Expected Output}
+
+The program must sort lines in ascending or descending order. For testing, enter lines interactively and terminate input with \texttt{<Control-D>}.
+
+\subsection{Output without optional parameter}
+
+\begin{lstlisting}
+machine-:$ ./sort
+a
+v
+b
+<Control-D>
+a
+b
+v
+
+machine-:$ ./sort
+bonjour
+hallo
+gruesseuch
+<Control-D>
+bonjour
+gruesseuch
+hallo
+\end{lstlisting}
+
+\subsection{Output with optional parameter}
+
+\begin{lstlisting}
+machine-:$ ./sort -r
+a
+v
+b
+<Control-D>
+v
+b
+a
+
+machine-:$ ./sort -r
+bonjour
+hallo
+gruesseuch
+<Control-D>
+hallo
+gruesseuch
+bonjour
+\end{lstlisting}
+
+\section{Upload the result to the Git repository}
+You must upload the file you wrote, \texttt{sort.c}, to the repository.
+
+\begin{lstlisting}
+machine-:$ git add sort.c
+....
+machine-:$ git commit -m"solution for exercise 4"
+....
+machine-:$ git push origin master
+\end{lstlisting}%$
+
+\section{Get feedback}
+You can inspect the results of the automated tests for your program inside gitlab CI (\url{https://gitlab.ti.bfh.ch}, go to \texttt{CI/CD > Jobs} in your forked project). There, you will also find the amount of points given.
+
+\end{document}
