@@ -1,4 +1,8 @@
-This repository contains a directory skeleton for submitting the exercises in
-Project and Training 1 (BTI3001/BTI3002).
-
-Refer to training_CSBasics.pdf for further information.
+	
+  Des exrcices en C
+  
+  1-hello	Add files via upload	last month
+	2-primes	Add files via upload	last month
+	3-ls	Add files via upload	last month
+	4-sort	Add files via upload	last month
+	5-shell
